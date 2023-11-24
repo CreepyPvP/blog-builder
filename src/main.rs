@@ -65,7 +65,6 @@ impl<'a> Lexer<'a>
                         self.pos += 1;
                         len += 1;
                     } else  {
-                        self.pos += 1;
                         break;
                     }
                 }
@@ -89,8 +88,8 @@ impl<'a> Parser<'a>
 
     fn of(mut lexer: Lexer<'a>) -> Self
     {
-        let peek = lexer.next_token();
         let curr = lexer.next_token();
+        let peek = lexer.next_token();
         Parser {
             lexer,
             peek,
